@@ -9,138 +9,168 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Barlow:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
 <style>
 body{margin:0;background:#FFFFFF}
-a{color:#1C1F22}a:hover{color:#9A5A00}
+a{color:#231F20}a:hover{color:#9A5A00}
+.tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0 24px}
+.tl li{position:relative;display:flex;flex-direction:column;gap:12px;min-width:0}
+.tl .ph{font-family:Outfit,sans-serif;font-weight:600;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#9A5A00;height:18px;white-space:nowrap}
+.tl .dot{position:relative;z-index:1;width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Outfit,sans-serif;font-weight:800;font-size:24px;background:#231F20;color:#FFFFFF;flex:none}
+.tl .dot.o{background:#FFFFFF;color:#231F20;box-shadow:inset 0 0 0 3px #231F20}
+.tl li::before{content:"";position:absolute;top:61px;left:64px;right:-24px;height:4px;border-radius:2px;background:#F89C1D}
+.tl li.dash::before{background:repeating-linear-gradient(90deg,#F89C1D 0 10px,transparent 10px 18px)}
+.tl li:last-child::before{display:none}
+.tl h3{margin:4px 0 0;font-family:Outfit,sans-serif;font-weight:700;font-size:22px}
+.tl p{margin:0;color:#4A4644;font-size:16px}
+@media (max-width:960px){
+.tl{grid-template-columns:minmax(0,1fr);gap:32px}
+.tl li{padding-left:88px;min-height:64px;gap:6px}
+.tl .dot{position:absolute;left:0;top:0}
+.tl .ph{height:auto}
+.tl li::before{top:68px;left:30px;right:auto;bottom:-28px;width:4px;height:auto}
+.tl li.dash::before{background:repeating-linear-gradient(180deg,#F89C1D 0 10px,transparent 10px 18px)}
+}
 </style>
 <style>html{scroll-behavior:smooth}*{box-sizing:border-box}img{max-width:100%}</style>
 </head>
 <body>
-<div style="font-family: Barlow, 'Segoe UI', Arial, sans-serif; color: #1C1F22; background: #FFFFFF; font-size: 17px; line-height: 1.6">
-<header style="border-bottom: 1px solid #E3E5E8; background: #FFFFFF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 18px max(16px, 3vw); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-<a href="#top" style="display: flex; align-items: center; text-decoration: none">
-<img src="assets/mriservis-logo.png" alt="MRI Servis, průmyslová automatizace" style="display: block; height: 64px; width: auto">
-</a>
+<div style="font-family: Figtree, 'Segoe UI', Arial, sans-serif; color: #231F20; background: #FFFFFF; font-size: 17px; line-height: 1.6">
+<header style="background: #FFFFFF; border-bottom: 1px solid #ECEAE6">
+<div style="max-width: 1200px; margin: 0 auto; padding: 16px max(16px, 3vw); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" style="display: flex; align-items: center; text-decoration: none"><img src="assets/mriservis-logo.png" alt="MRI Servis, průmyslová automatizace" style="display: block; height: 64px; width: auto"></a>
 <nav aria-label="Hlavní menu" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-weight: 600; font-size: 16px">
 <a href="#sluzby" style="text-decoration: none">Služby</a>
 <a href="mri-pro.html" style="text-decoration: none">MRI Pro</a>
 <a href="#reference" style="text-decoration: none">Reference</a>
 <a href="#firma" style="text-decoration: none">O firmě</a>
-<a href="#kontakt" style="text-decoration: none; background: #1C1F22; color: #FFFFFF; padding: 10px 18px">Kontakt</a>
+<a href="#kontakt" style="text-decoration: none; background: #231F20; color: #FFFFFF; padding: 10px 22px; border-radius: 999px">Kontakt</a>
 </nav>
 </div>
 </header>
 
-<section id="top" style="background: #F2F3F4">
-<div style="max-width: 1200px; margin: 0 auto; padding: 72px max(16px, 3vw); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: center">
+<section id="top" style="background: #F5F4F2">
+<div style="max-width: 1200px; margin: 0 auto; padding: 72px max(16px, 3vw); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 56px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 24px; min-width: 0">
-<p style="margin: 0; font-weight: 600; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #9A5A00">Přerov · od roku 2013</p>
-<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(44px, 6vw, 76px); line-height: 0.98; text-wrap: balance">Elektro a automatizace pro lomy, štěrkovny a pískovny</h1>
-<p style="margin: 0; font-size: 19px; color: #3C4248; max-width: 34em">Od trafostanice přes kabelové rozvody až po řídicí a vizualizační pracoviště obsluhy. Navrhneme, nainstalujeme, zautomatizujeme a postaráme se o servis.</p>
+<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-family: Outfit, sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: #9A5A00"><span aria-hidden="true" style="width: 14px; height: 20px; background: #F89C1D; transform: skewX(30deg)"></span>Přerov · od roku 2013</p>
+<h1 style="margin: 0; font-family: Outfit, sans-serif; font-weight: 800; font-size: clamp(38px, 5vw, 62px); line-height: 1.05; letter-spacing: -0.01em; text-wrap: balance">Elektro a automatizace pro lomy, štěrkovny a pískovny</h1>
+<p style="margin: 0; font-size: 19px; color: #4A4644; max-width: 34em">Od trafostanice přes kabelové rozvody až po řídicí a vizualizační pracoviště obsluhy. Navrhneme, nainstalujeme, zautomatizujeme a postaráme se o servis.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
-<a href="#kontakt" style="text-decoration: none; background: #F89C1D; color: #1C1F22; font-weight: 700; padding: 14px 24px; font-size: 17px">Poptat řešení</a>
-<a href="mri-pro.html" style="text-decoration: none; border: 2px solid #1C1F22; font-weight: 700; padding: 12px 22px; font-size: 17px">Monitoring MRI Pro</a>
+<a href="#kontakt" style="text-decoration: none; background: #F89C1D; color: #231F20; font-weight: 700; padding: 15px 28px; border-radius: 999px">Poptat řešení</a>
+<a href="mri-pro.html" style="text-decoration: none; box-shadow: inset 0 0 0 2px #231F20; font-weight: 700; padding: 15px 28px; border-radius: 999px">Monitoring MRI Pro</a>
 </div>
 </div>
-<div style="position: relative; min-width: 0">
-<img src="assets/foto-linka-sila.jpg" alt="Technologická linka na úpravu kameniva se sily" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover">
-<div style="position: absolute; left: 0; right: 0; bottom: 0; height: 12px; background: repeating-linear-gradient(-45deg, #F89C1D 0 18px, #1C1F22 18px 36px)" aria-hidden="true"></div>
+<div style="position: relative; min-width: 0; padding-left: 28px">
+<img src="assets/foto-linka-sila.jpg" alt="Technologická linka na úpravu kameniva se sily" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 50% 50% 24px 24px / 66.7% 66.7% 24px 24px">
+<div aria-hidden="true" style="position: absolute; left: 0; bottom: 28px; width: 72px; height: 132px; background: #F89C1D; transform: skewX(30deg); transform-origin: bottom left"></div>
 </div>
 </div>
 </section>
 
-<section style="background: #1C1F22; color: #FFFFFF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 28px max(16px, 3vw); display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px">
-<div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-family: 'Barlow Condensed', sans-serif; font-size: 30px; color: #F89C1D">do 24 hodin</strong><span style="font-size: 15px; color: #C9CDD2">servisní zásah u smluvních zákazníků</span></div>
-<div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-family: 'Barlow Condensed', sans-serif; font-size: 30px; color: #F89C1D">vzdálená správa</strong><span style="font-size: 15px; color: #C9CDD2">součást dodávky nových automatizovaných linek</span></div>
-<div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-family: 'Barlow Condensed', sans-serif; font-size: 30px; color: #F89C1D">vše z jedné ruky</strong><span style="font-size: 15px; color: #C9CDD2">návrh, projekt, montáž, revize i servis</span></div>
+<section style="background: #231F20; color: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 32px max(16px, 3vw); display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-family: Outfit, sans-serif; font-weight: 700; font-size: 26px; color: #F89C1D">do 24 hodin</strong><span style="font-size: 15px; color: #CFCBC8">servisní zásah u smluvních zákazníků</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-family: Outfit, sans-serif; font-weight: 700; font-size: 26px; color: #F89C1D">vzdálená správa</strong><span style="font-size: 15px; color: #CFCBC8">součást dodávky nových automatizovaných linek</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-family: Outfit, sans-serif; font-weight: 700; font-size: 26px; color: #F89C1D">vše z jedné ruky</strong><span style="font-size: 15px; color: #CFCBC8">návrh, projekt, montáž, revize i servis</span></div>
 </div>
 </section>
 
 <section id="sluzby">
-<div style="max-width: 1200px; margin: 0 auto; padding: 88px max(16px, 3vw); display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-direction: column; gap: 12px; max-width: 760px">
-<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 48px; line-height: 1">Služby</h2>
-<p style="margin: 0; font-size: 18px; color: #3C4248">Navazujeme na dlouhou přerovskou tradici dodávek a instalací technologických linek pro kamenoprůmysl. Každou zakázku stavíme na požadavcích provozu, ne na katalogu.</p>
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px max(16px, 3vw); display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
+<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-family: Outfit, sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: #9A5A00"><span aria-hidden="true" style="width: 14px; height: 20px; background: #F89C1D; transform: skewX(30deg)"></span>Služby</p>
+<h2 style="margin: 0; font-family: Outfit, sans-serif; font-weight: 800; font-size: 44px; line-height: 1.05">Od prvního návrhu po roky provozu</h2>
+<p style="margin: 0; font-size: 18px; color: #4A4644">Navazujeme na dlouhou přerovskou tradici dodávek a instalací technologických linek pro kamenoprůmysl. Každou zakázku stavíme na požadavcích provozu, ne na katalogu.</p>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1px; background: #E3E5E8; border: 1px solid #E3E5E8">
-<article style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: #9A5A00; font-size: 15px; letter-spacing: 0.1em">KROK 1</span><h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 28px">Návrhy</h3><p style="margin: 0; color: #3C4248">Posoudíme současný stav a navrhneme napájení, instalaci a automatizaci včetně cenové kalkulace. Pro modernizaci, rozšíření i novou technologii.</p></article>
-<article style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: #9A5A00; font-size: 15px; letter-spacing: 0.1em">KROK 2</span><h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 28px">Projekty</h3><p style="margin: 0; color: #3C4248">Moderní přístroje a chytrá řešení s ohledem na spotřebu energie a lidské zdroje. Projektujeme na maximální efektivitu zařízení.</p></article>
-<article style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: #9A5A00; font-size: 15px; letter-spacing: 0.1em">KROK 3</span><h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 28px">Instalace</h3><p style="margin: 0; color: #3C4248">Kompletní dodávky od trafostanic přes kabelové rozvody po řídicí a vizualizační pracoviště. Vedoucí montáží hlídají kvalitu i bezpečnost na stavbě.</p></article>
-<article style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: #9A5A00; font-size: 15px; letter-spacing: 0.1em">KROK 4</span><h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 28px">Automatizace</h3><p style="margin: 0; color: #3C4248">Automatizace jako cesta k úspoře energie, surovin a času. Řídicí systémy a vizualizace, které obsluha pochopí na první pohled.</p></article>
-<article style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: #9A5A00; font-size: 15px; letter-spacing: 0.1em">PROVOZ</span><h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 28px">Servis</h3><p style="margin: 0; color: #3C4248">Záruční i pozáruční servis, také mobilních technologií. Smluvním zákazníkům do 24 hodin, u nových linek vzdáleně přes řídicí systém.</p></article>
-<article style="background: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: #9A5A00; font-size: 15px; letter-spacing: 0.1em">PROVOZ</span><h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 28px">Revize</h3><p style="margin: 0; color: #3C4248">Revize nejen kvůli předpisům. Pravidelná kontrola drží zařízení dlouhodobě provozuschopné a bezpečné.</p></article>
-</div>
+<ol class="tl">
+<li><span class="ph">Příprava</span><span class="dot">1</span><h3>Návrh</h3><p>Posoudíme současný stav a navrhneme napájení, instalaci a automatizaci včetně cenové kalkulace.</p></li>
+<li><span class="ph"></span><span class="dot">2</span><h3>Projekt</h3><p>Moderní přístroje a chytrá řešení s ohledem na spotřebu energie a lidskou práci.</p></li>
+<li><span class="ph">Stavba</span><span class="dot">3</span><h3>Instalace</h3><p>Od trafostanic přes kabelové rozvody po řídicí a vizualizační pracoviště. Bezpečně, pod dohledem vedoucího montáže.</p></li>
+<li class="dash"><span class="ph"></span><span class="dot">4</span><h3>Automatizace</h3><p>Řídicí systém a vizualizace, které obsluha pochopí na první pohled. U nových linek se vzdálenou správou.</p></li>
+<li class="dash"><span class="ph">Provoz, opakovaně</span><span class="dot o">5</span><h3>Servis</h3><p>Záruční i pozáruční, také mobilních technologií. Smluvním zákazníkům do 24 hodin.</p></li>
+<li><span class="ph"></span><span class="dot o">6</span><h3>Revize</h3><p>Pravidelná kontrola drží zařízení dlouhodobě provozuschopné a bezpečné.</p></li>
+</ol>
 </div>
 </section>
 
-<section id="mripro" style="background: #F2F3F4">
-<div style="max-width: 1200px; margin: 0 auto; padding: 88px max(16px, 3vw); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 48px; align-items: center">
+<section id="mripro" style="background: #F5F4F2">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px max(16px, 3vw); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 56px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0">
-<p style="margin: 0; font-weight: 600; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #9A5A00">Vlastní software</p>
+<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-family: Outfit, sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: #9A5A00"><span aria-hidden="true" style="width: 14px; height: 20px; background: #F89C1D; transform: skewX(30deg)"></span>Vlastní software</p>
 <h2 style="margin: 0; line-height: 1"><img src="assets/mripro-logo.svg" alt="MRI Pro" style="display: block; height: 72px; width: auto"></h2>
-<p style="margin: 0; font-size: 19px; color: #3C4248">Informační systém pro sběr, vizualizaci a analýzu dat z drtičů, vah, pásových vah a podavačů. Bez ohledu na výrobce stroje nebo komunikační protokol.</p>
+<p style="margin: 0; font-size: 19px; color: #4A4644">Informační systém pro sběr, vizualizaci a analýzu dat z drtičů, vah, pásových vah a podavačů. Bez ohledu na výrobce stroje nebo komunikační protokol.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
-<li style="display: flex; gap: 12px"><span style="flex: none; width: 10px; height: 10px; margin-top: 9px; background: #F89C1D"></span><span>Stav všech strojů na jednom místě, barevně: optimální chod, naprázdno, přetížení</span></li>
-<li style="display: flex; gap: 12px"><span style="flex: none; width: 10px; height: 10px; margin-top: 9px; background: #F89C1D"></span><span>Upozornění na výpadek komunikace nebo zastavení výroby</span></li>
-<li style="display: flex; gap: 12px"><span style="flex: none; width: 10px; height: 10px; margin-top: 9px; background: #F89C1D"></span><span>Historie v interaktivních grafech, srovnání strojů na jedné časové ose</span></li>
-<li style="display: flex; gap: 12px"><span style="flex: none; width: 10px; height: 10px; margin-top: 9px; background: #F89C1D"></span><span>Pravidelné reporty e-mailem, exporty do PDF, XLSX, ODS a CSV</span></li>
+<li style="display: flex; gap: 14px"><span aria-hidden="true" style="flex: none; width: 9px; height: 14px; margin-top: 6px; background: #F89C1D; transform: skewX(30deg)"></span><span>Stav všech strojů na jednom místě, barevně: optimální chod, naprázdno, přetížení</span></li>
+<li style="display: flex; gap: 14px"><span aria-hidden="true" style="flex: none; width: 9px; height: 14px; margin-top: 6px; background: #F89C1D; transform: skewX(30deg)"></span><span>Upozornění na výpadek komunikace nebo zastavení výroby</span></li>
+<li style="display: flex; gap: 14px"><span aria-hidden="true" style="flex: none; width: 9px; height: 14px; margin-top: 6px; background: #F89C1D; transform: skewX(30deg)"></span><span>Historie v interaktivních grafech, srovnání strojů na jedné časové ose</span></li>
+<li style="display: flex; gap: 14px"><span aria-hidden="true" style="flex: none; width: 9px; height: 14px; margin-top: 6px; background: #F89C1D; transform: skewX(30deg)"></span><span>Pravidelné reporty e-mailem, exporty do PDF, XLSX, ODS a CSV</span></li>
 </ul>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px">
-<a href="https://mripro.cz" style="text-decoration: none; background: #1C1F22; color: #FFFFFF; font-weight: 700; padding: 14px 24px">Přihlásit se do MRI Pro</a>
-<a href="mri-pro.html" style="text-decoration: none; border: 2px solid #1C1F22; font-weight: 700; padding: 12px 22px">Více o MRI Pro</a>
+<a href="mri-pro.html" style="text-decoration: none; background: #231F20; color: #FFFFFF; font-weight: 700; padding: 15px 28px; border-radius: 999px">Více o MRI Pro</a>
+<a href="https://mripro.cz" style="text-decoration: none; box-shadow: inset 0 0 0 2px #231F20; font-weight: 700; padding: 15px 28px; border-radius: 999px">Přihlásit se</a>
 </div>
 </div>
-<figure style="margin: 0; background: #FFFFFF; border: 1px solid #D5D8DC; box-shadow: 0 18px 40px rgba(28,31,34,0.12); min-width: 0"><div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; background: #1C1F22; color: #FFFFFF; font-size: 14px"><strong style="display: flex; align-items: center; gap: 8px; font-family: 'Barlow Condensed', sans-serif; font-size: 18px"><img src="assets/mripro-ikona.png" alt="" style="width: 24px; height: 24px">MRI Pro · Provoz [NÁZEV]</strong><span style="color: #C9CDD2">dnes, 1. směna</span></div><div style="padding: 18px; display: flex; flex-direction: column; gap: 14px; font-size: 14px"><div style="display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; align-items: center"><span style="font-weight: 600">Primér</span><span style="display: flex; height: 18px"><span style="width: 62%; background: #2E8B57"></span><span style="width: 18%; background: #E3B341"></span><span style="width: 8%; background: #C0392B"></span><span style="width: 12%; background: #D5D8DC"></span></span></div><div style="display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; align-items: center"><span style="font-weight: 600">Sekundér</span><span style="display: flex; height: 18px"><span style="width: 71%; background: #2E8B57"></span><span style="width: 14%; background: #E3B341"></span><span style="width: 5%; background: #C0392B"></span><span style="width: 10%; background: #D5D8DC"></span></span></div><div style="display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; align-items: center"><span style="font-weight: 600">Pásová váha</span><span style="display: flex; height: 18px"><span style="width: 80%; background: #2E8B57"></span><span style="width: 12%; background: #E3B341"></span><span style="width: 8%; background: #D5D8DC"></span></span></div><div style="display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; align-items: center"><span style="font-weight: 600">Podavač</span><span style="display: flex; height: 18px"><span style="width: 55%; background: #2E8B57"></span><span style="width: 30%; background: #E3B341"></span><span style="width: 15%; background: #D5D8DC"></span></span></div><div style="display: flex; flex-wrap: wrap; gap: 16px; padding-top: 6px; color: #3C4248; font-size: 13px"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; background: #2E8B57"></span>optimální chod</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; background: #E3B341"></span>naprázdno</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; background: #C0392B"></span>přetížení</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; background: #D5D8DC"></span>stojí / bez dat</span></div></div><figcaption style="padding: 10px 18px; border-top: 1px solid #E3E5E8; font-size: 13px; color: #5A6067">Ilustrační ukázka vytížení strojů za směnu.</figcaption></figure>
+<figure style="margin: 0; background: #FFFFFF; border-radius: 24px; overflow: hidden; box-shadow: 0 24px 48px rgba(35,31,32,0.12); min-width: 0">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; background: #231F20; color: #FFFFFF; font-size: 14px"><strong style="display: flex; align-items: center; gap: 8px; font-family: Outfit, sans-serif; font-weight: 700; font-size: 17px"><img src="assets/mripro-ikona.png" alt="" style="width: 24px; height: 24px">MRI Pro · Provoz [NÁZEV]</strong><span style="color: #CFCBC8">dnes, 1. směna</span></div>
+<div style="padding: 22px; display: flex; flex-direction: column; gap: 16px; font-size: 14px">
+<div style="display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; align-items: center"><span style="font-weight: 600">Primér</span><span style="display: flex; height: 18px; border-radius: 999px; overflow: hidden"><span style="width: 62%; background: #2E8B57"></span><span style="width: 18%; background: #E3B341"></span><span style="width: 8%; background: #C0392B"></span><span style="width: 12%; background: #D8D5D0"></span></span></div>
+<div style="display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; align-items: center"><span style="font-weight: 600">Sekundér</span><span style="display: flex; height: 18px; border-radius: 999px; overflow: hidden"><span style="width: 71%; background: #2E8B57"></span><span style="width: 14%; background: #E3B341"></span><span style="width: 5%; background: #C0392B"></span><span style="width: 10%; background: #D8D5D0"></span></span></div>
+<div style="display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; align-items: center"><span style="font-weight: 600">Pásová váha</span><span style="display: flex; height: 18px; border-radius: 999px; overflow: hidden"><span style="width: 80%; background: #2E8B57"></span><span style="width: 12%; background: #E3B341"></span><span style="width: 8%; background: #D8D5D0"></span></span></div>
+<div style="display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; align-items: center"><span style="font-weight: 600">Podavač</span><span style="display: flex; height: 18px; border-radius: 999px; overflow: hidden"><span style="width: 55%; background: #2E8B57"></span><span style="width: 30%; background: #E3B341"></span><span style="width: 15%; background: #D8D5D0"></span></span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; padding-top: 6px; color: #4A4644; font-size: 13px"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 50%; background: #2E8B57"></span>optimální chod</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 50%; background: #E3B341"></span>naprázdno</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 50%; background: #C0392B"></span>přetížení</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 50%; background: #D8D5D0"></span>stojí / bez dat</span></div>
+</div>
+<figcaption style="padding: 12px 22px; border-top: 1px solid #ECEAE6; font-size: 13px; color: #6B6663">Ilustrační ukázka vytížení strojů za směnu.</figcaption>
+</figure>
 </div>
 </section>
 
 <section id="reference">
-<div style="max-width: 1200px; margin: 0 auto; padding: 88px max(16px, 3vw); display: flex; flex-direction: column; gap: 32px">
-<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 48px; line-height: 1">Kde nás najdete v provozu</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px">
-<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/foto-technologie.jpg" alt="Kabelové trasy a technologie uvnitř provozu" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover"><figcaption><strong style="font-family: 'Barlow Condensed', sans-serif; font-size: 22px; display: block">[Lom / provoz]</strong><span style="color: #5A6067; font-size: 15px">[Co jsme dodali, rok]</span></figcaption></figure>
-<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/foto-rozvadec.jpg" alt="Rozvaděč s řídicím systémem" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover"><figcaption><strong style="font-family: 'Barlow Condensed', sans-serif; font-size: 22px; display: block">[Lom / provoz]</strong><span style="color: #5A6067; font-size: 15px">[Co jsme dodali, rok]</span></figcaption></figure>
-<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/foto-servisni-vozy.jpg" alt="Servisní vozy MRI Servis v provozu" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover"><figcaption><strong style="font-family: 'Barlow Condensed', sans-serif; font-size: 22px; display: block">[Lom / provoz]</strong><span style="color: #5A6067; font-size: 15px">[Co jsme dodali, rok]</span></figcaption></figure>
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px max(16px, 3vw); display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; display: flex; align-items: center; gap: 12px; font-family: Outfit, sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: #9A5A00"><span aria-hidden="true" style="width: 14px; height: 20px; background: #F89C1D; transform: skewX(30deg)"></span>Reference</p>
+<h2 style="margin: 0; font-family: Outfit, sans-serif; font-weight: 800; font-size: 44px; line-height: 1.05">Kde nás najdete v provozu</h2>
 </div>
-<p style="margin: 0; padding: 20px 24px; background: #F2F3F4; font-weight: 600">Pracujeme pro provozy v Česku i na Slovensku. [Loga zákazníků, se kterými se dohodneme na zveřejnění.]</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 12px"><img src="assets/foto-technologie.jpg" alt="Kabelové trasy a technologie uvnitř provozu" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 20px"><figcaption><strong style="font-family: Outfit, sans-serif; font-weight: 700; font-size: 20px; display: block">[Lom / provoz]</strong><span style="color: #6B6663; font-size: 15px">[Co jsme dodali, rok]</span></figcaption></figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 12px"><img src="assets/foto-rozvadec.jpg" alt="Rozvaděč s řídicím systémem" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 20px"><figcaption><strong style="font-family: Outfit, sans-serif; font-weight: 700; font-size: 20px; display: block">[Lom / provoz]</strong><span style="color: #6B6663; font-size: 15px">[Co jsme dodali, rok]</span></figcaption></figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 12px"><img src="assets/foto-servisni-vozy.jpg" alt="Servisní vozy MRI Servis v provozu" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 20px"><figcaption><strong style="font-family: Outfit, sans-serif; font-weight: 700; font-size: 20px; display: block">[Lom / provoz]</strong><span style="color: #6B6663; font-size: 15px">[Co jsme dodali, rok]</span></figcaption></figure>
+</div>
+<p style="margin: 0; padding: 20px 26px; background: #F5F4F2; border-radius: 20px; font-weight: 600">Pracujeme pro provozy v Česku i na Slovensku. [Loga zákazníků, se kterými se dohodneme na zveřejnění.]</p>
 </div>
 </section>
 
-<section id="firma" style="background: #1C1F22; color: #FFFFFF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 72px max(16px, 3vw); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px">
-<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 48px; line-height: 1">Automatizaci nevnímáme jako složitou a drahou věc</h2>
-<p style="margin: 0; font-size: 18px; color: #DADDE1">Je to prostředek, jak efektivně využít energie, suroviny a technologii. Naším cílem je co nejvyšší kvalita díky moderním technologiím a prvkům automatizace, ale hlavně spokojený zákazník. Firmu vede jednatel Marek Drgáč, provozovnu máme v Přerově na Tovačovské ulici.</p>
+<section id="firma" style="background: #231F20; color: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 80px max(16px, 3vw); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; align-items: center">
+<h2 style="margin: 0; font-family: Outfit, sans-serif; font-weight: 800; font-size: 40px; line-height: 1.1">Automatizaci nevnímáme jako složitou a drahou věc</h2>
+<p style="margin: 0; font-size: 18px; color: #DDD9D6">Je to prostředek, jak efektivně využít energie, suroviny a technologii. Naším cílem je co nejvyšší kvalita díky moderním technologiím a prvkům automatizace, ale hlavně spokojený zákazník. Firmu vede jednatel Marek Drgáč, provozovnu máme v Přerově na Tovačovské ulici.</p>
 </div>
 </section>
 
 <section id="kontakt">
-<div style="max-width: 1200px; margin: 0 auto; padding: 88px max(16px, 3vw); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 40px">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px max(16px, 3vw); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 16px">
-<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 48px; line-height: 1">Kontakt</h2>
+<h2 style="margin: 0; font-family: Outfit, sans-serif; font-weight: 800; font-size: 44px; line-height: 1.05">Kontakt</h2>
 <p style="margin: 0; font-size: 18px">Provozovna<br><strong>Tovačovská 3457/4a, 750 02 Přerov</strong></p>
 <p style="margin: 0">tel. <strong>+420 581 737 934</strong><br>info@mriservis.cz</p>
 <p style="margin: 0"><strong>Marek Drgáč</strong>, jednatel<br>+420 603 146 529 · drgac@mriservis.cz</p>
 </div>
-<form style="display: flex; flex-direction: column; gap: 14px; background: #F2F3F4; padding: 28px; min-width: 0">
-<strong style="font-family: 'Barlow Condensed', sans-serif; font-size: 26px">Poptávka</strong>
+<form style="display: flex; flex-direction: column; gap: 14px; background: #F5F4F2; padding: 32px; border-radius: 24px; min-width: 0">
+<strong style="font-family: Outfit, sans-serif; font-weight: 700; font-size: 24px">Poptávka</strong>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
-<label for="a-jmeno" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 15px">Jméno a firma<input id="a-jmeno" type="text" style="font: inherit; font-weight: 400; padding: 12px; border: 1px solid #B9BEC4; background: #FFFFFF"></label>
-<label for="a-telefon" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 15px">Telefon<input id="a-telefon" type="tel" style="font: inherit; font-weight: 400; padding: 12px; border: 1px solid #B9BEC4; background: #FFFFFF"></label>
+<label for="a-jmeno" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 15px">Jméno a firma<input id="a-jmeno" type="text" style="font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #C9C5C0; border-radius: 12px; background: #FFFFFF"></label>
+<label for="a-telefon" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 15px">Telefon<input id="a-telefon" type="tel" style="font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #C9C5C0; border-radius: 12px; background: #FFFFFF"></label>
 </div>
-<label for="a-zprava" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 15px">Co potřebujete<textarea id="a-zprava" rows="4" style="font: inherit; font-weight: 400; padding: 12px; border: 1px solid #B9BEC4; background: #FFFFFF"></textarea></label>
-<button type="button" style="align-self: flex-start; font: inherit; font-weight: 700; background: #F89C1D; color: #1C1F22; border: 0; padding: 14px 28px; cursor: pointer">Odeslat poptávku</button>
+<label for="a-zprava" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 15px">Co potřebujete<textarea id="a-zprava" rows="4" style="font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #C9C5C0; border-radius: 12px; background: #FFFFFF"></textarea></label>
+<button type="button" style="align-self: flex-start; font: inherit; font-weight: 700; background: #F89C1D; color: #231F20; border: 0; padding: 15px 30px; border-radius: 999px; cursor: pointer">Odeslat poptávku</button>
 </form>
 </div>
 </section>
 
-<footer style="border-top: 1px solid #E3E5E8">
-<div style="max-width: 1200px; margin: 0 auto; padding: 24px max(16px, 3vw); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; color: #5A6067">
+<footer style="border-top: 1px solid #ECEAE6">
+<div style="max-width: 1200px; margin: 0 auto; padding: 28px max(16px, 3vw); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; color: #6B6663">
 <img src="assets/mriservis-logo-slogan.png" alt="MRI Servis, průmyslová automatizace" style="height: 72px; width: auto">
 <span>MRI Servis - průmyslová automatizace s.r.o. · Nová čtvrť 282/7c, 750 02 Přerov · IČO 01989286 · DIČ CZ01989286</span>
-<a href="https://mripro.cz" style="display: flex; align-items: center; gap: 8px; color: #5A6067"><img src="assets/mripro-ikona.png" alt="" style="width: 28px; height: 28px">mripro.cz</a>
+<a href="https://mripro.cz" style="display: flex; align-items: center; gap: 8px; color: #6B6663"><img src="assets/mripro-ikona.png" alt="" style="width: 28px; height: 28px">mripro.cz</a>
 </div>
 </footer>
 </div>
