@@ -39,6 +39,14 @@ Vždy noindex. Sdílí `inc/config.php` a `inc/layout.php`.
 Reference ve variantě jsou připravené jako struktura (`$realizace` ve `varianta/index.php`: obor, výchozí situace,
 zadání, technologie, rozsah, výsledek, fotka). Dokud je pole prázdné, ukazují se jen fotky.
 
+## Varianta C (návrh podle revize Gemini)
+
+Soubor `varianta-c/index.php`, adresa `/varianta-c/`. Vychází ze současné hlavní stránky a přidává:
+časté dotazy (s FAQ schématem), výzvy k poptávce pod Službami a Referencemi, zvýrazněný servisní telefon,
+animaci ukázky vytížení při doscrollování (`assets/js/anim.js`, vypne se při omezení pohybu),
+e-maily skryté před roboty (`assets/js/mail.js`) a `rel="noopener noreferrer"` u odkazu do MRI Pro.
+Styly v `assets/css/varianta-c.css`. Vždy noindex.
+
 ## Nasazení
 
 **GitHub Pages (náhled):** po každém pushi do `main` workflow `.github/workflows/pages.yml` spustí

@@ -17,6 +17,7 @@ RewriteRule ^dekujeme/?$ dekujeme.php [L]
 RewriteRule ^varianta/?$ varianta/index.php [L]
 RewriteRule ^varianta/sluzby/?$ varianta/sluzby.php [L]
 RewriteRule ^varianta/ochrana-osobnich-udaju/?$ varianta/ochrana-osobnich-udaju.php [L]
+RewriteRule ^varianta-c/?$ varianta-c/index.php [L]
 RewriteRule ^robots\.txt$ robots.php [L]
 RewriteRule ^sitemap\.xml$ sitemap.php [L]
 

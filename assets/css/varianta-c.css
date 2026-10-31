@@ -1,0 +1,24 @@
+/* Varianta C (podle revize Gemini): stejný vzhled jako hlavní stránka, navíc dotazy, servisní kontakt, výzvy a animace. */
+.vc-banner{background:var(--ink);color:#fff;text-align:center;font-size:14px;padding:8px 16px}
+.vc-banner a{color:var(--orange);font-weight:700}
+.vc-banner a:hover{color:#fff}
+.vc-cta-inline{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;padding:24px 28px;border-radius:20px;background:var(--sand);border-left:6px solid var(--orange)}
+.section--sand .vc-cta-inline{background:#fff}
+.vc-cta-inline p{max-width:40em}
+.vc-faq{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px}
+.vc-faq details{border-top:1px solid var(--line);padding:18px 0;background:transparent}
+.vc-faq details:last-child{border-bottom:1px solid var(--line)}
+.vc-faq summary{cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:21px}
+.vc-faq details p{margin-top:10px;color:var(--ink-2)}
+.vc-servis{background:var(--ink);color:#fff;border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:4px}
+.vc-servis__label{font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.vc-servis__tel{font-family:var(--font-display);font-weight:800;font-size:32px;color:#fff;text-decoration:none}
+.vc-servis__tel:hover{color:var(--orange)}
+.vc-servis p:last-child{color:var(--night-text)}
+.js-anim.anim-ready .meter i{transform:scaleX(0);transform-origin:left center}
+.js-anim.anim-in .meter i{transform:scaleX(1);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.js-anim.anim-in .meter i:nth-child(2){transition-delay:.15s}
+.js-anim.anim-in .meter i:nth-child(3){transition-delay:.3s}
+.js-anim.anim-in .meter i:nth-child(4){transition-delay:.45s}
+@media (max-width:760px){.vc-cta-inline{margin-top:28px;padding:20px}.vc-servis__tel{font-size:28px}}
+@media (prefers-reduced-motion:reduce){.js-anim .meter i{transform:none!important;transition:none!important}}

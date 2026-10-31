@@ -23,6 +23,7 @@ $stranky = [
     'varianta/index.php' => 'varianta/index.html',
     'varianta/sluzby.php' => 'varianta/sluzby/index.html',
     'varianta/ochrana-osobnich-udaju.php' => 'varianta/ochrana-osobnich-udaju/index.html',
+    'varianta-c/index.php' => 'varianta-c/index.html',
 ];
 
 /** Staré adresy z prvního náhledu přesměrujeme na nové. */
