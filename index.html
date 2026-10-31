@@ -182,15 +182,20 @@ h2 img{height:96px!important}
 <p style="margin: 0"><strong>Marek Drgáč</strong>, jednatel<br>+420 603 146 529 · drgac@mriservis.cz</p>
 <p style="margin: 0; padding-top: 16px; border-top: 1px solid #ECEAE6; font-size: 17px; color: #4A4644"><strong style="color: #231F20">Fakturační údaje</strong><br>MRI Servis - průmyslová automatizace s.r.o.<br>Nová čtvrť 282/7c, 750 02 Přerov<br>IČO 01989286 · DIČ CZ01989286</p>
 </div>
-<form style="display: flex; flex-direction: column; gap: 14px; background: #F5F4F2; padding: 32px; border-radius: 24px; min-width: 0">
+<form action="https://formsubmit.co/info@mriservis.cz" method="POST" accept-charset="UTF-8" style="display: flex; flex-direction: column; gap: 14px; background: #F5F4F2; padding: 32px; border-radius: 24px; min-width: 0">
 <strong style="font-family: Outfit, sans-serif; font-weight: 700; font-size: 24px">Poptávka</strong>
+<input type="hidden" name="_subject" value="Poptávka z webu mriservis.cz">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://ondrej-kratochvil.github.io/mriservis-web/dekujeme.html">
+<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none">
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
-<label for="a-jmeno" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 17px; grid-column: 1 / -1">Jméno a firma<input id="a-jmeno" type="text" autocomplete="name" style="font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #C9C5C0; border-radius: 12px; background: #FFFFFF"></label>
-<label for="a-email" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 17px">E-mail<input id="a-email" type="email" autocomplete="email" inputmode="email" style="font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #C9C5C0; border-radius: 12px; background: #FFFFFF"></label>
-<label for="a-telefon" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 17px">Telefon<input id="a-telefon" type="tel" autocomplete="tel" style="font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #C9C5C0; border-radius: 12px; background: #FFFFFF"></label>
+<label for="a-jmeno" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 17px; grid-column: 1 / -1">Jméno a firma<input id="a-jmeno" name="jmeno" required type="text" autocomplete="name" style="font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #C9C5C0; border-radius: 12px; background: #FFFFFF"></label>
+<label for="a-email" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 17px">E-mail<input id="a-email" name="email" required type="email" autocomplete="email" inputmode="email" style="font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #C9C5C0; border-radius: 12px; background: #FFFFFF"></label>
+<label for="a-telefon" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 17px">Telefon<input id="a-telefon" name="telefon" type="tel" autocomplete="tel" style="font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #C9C5C0; border-radius: 12px; background: #FFFFFF"></label>
 </div>
-<label for="a-zprava" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 17px">Co potřebujete<textarea id="a-zprava" rows="4" style="font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #C9C5C0; border-radius: 12px; background: #FFFFFF"></textarea></label>
-<button type="button" style="align-self: flex-start; font: inherit; font-weight: 700; background: #F89C1D; color: #231F20; border: 0; padding: 15px 30px; border-radius: 999px; cursor: pointer">Odeslat poptávku</button>
+<label for="a-zprava" style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 17px">Co potřebujete<textarea id="a-zprava" name="zprava" required rows="4" style="font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #C9C5C0; border-radius: 12px; background: #FFFFFF"></textarea></label>
+<p style="margin: 0; font-size: 14px; color: #6B6663">Údaje použijeme jen k vyřízení vaší poptávky.</p>
+<button type="submit" style="align-self: flex-start; font: inherit; font-weight: 700; background: #F89C1D; color: #231F20; border: 0; padding: 15px 30px; border-radius: 999px; cursor: pointer">Odeslat poptávku</button>
 </form>
 </div>
 </section>
