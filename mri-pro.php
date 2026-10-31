@@ -12,8 +12,11 @@ $funkce = [
 ];
 
 $ukazky = [
-    ['img/mripro-graf.webp', 1212, 524, 'Graf historie v MRI Pro s přiblížením a barevnými úrovněmi zatížení', 'Graf historie', 'Každá hodnota má barvu podle nastavených úrovní: přetížení, optimální zatížení, chod naprázdno, stání. Přiblížíte libovolný úsek dne a data z grafu stáhnete do Excelu.', false],
-    ['img/mripro-agregace.webp', 647, 667, 'Agregace vytížení v MRI Pro: hodiny a procenta chodu naprázdno a jednotlivých úrovní zatížení', 'Vytížení a směny', 'Kolik času stroj běžel optimálně, naprázdno a v přetížení. Po dnech, směnách i za celý měsíc.', true],
+    ['graf-historie', 'Graf historie v MRI Pro s průběhem několika strojů na jedné časové ose', 'Pokročilá analýza historie', 'Interaktivní grafy s přiblížením. <strong>Více strojů a kanálů na jedné časové ose</strong>, trendy a úzká místa ve výrobě. Data z grafu stáhnete do Excelu.'],
+    ['vytizeni-smeny', 'Detail kanálu v MRI Pro s agregací vytížení a prstencovým grafem', 'Agregace a přehled vytížení', 'Kolik času stroj stál, běžel naprázdno, optimálně nebo v přetížení. <strong>Hodiny i procenta</strong> po dnech, směnách i za celý měsíc.'],
+    ['export', 'Nabídka exportu dat v MRI Pro', 'Exporty jedním kliknutím', 'Formátovaný export do <strong>XLSX, ODS a PDF</strong> pro porady a strojový export do CSV, XLSX, ODS, PDF a JSON pro další systémy.'],
+    ['limity-alarmy', 'Nastavení mezních hodnot jednotlivých úrovní zatížení v MRI Pro', 'Vlastní limity a úrovně', 'U každého kanálu nastavíte, kde končí stání, chod naprázdno a jednotlivé úrovně zatížení. <strong>Limity platí od zvoleného data</strong>, takže historie zůstane správně.'],
+    ['tydenni-report', 'Týdenní e-mailový report MRI Pro s tabulkou vytížení strojů', 'Týdenní report e-mailem', '<strong>Shrnutí za celý týden</strong> přijde do e-mailu: vytížení, stání a výpadky všech strojů v přehledné tabulce.'],
 ];
 
 $cesta = [
@@ -67,7 +70,8 @@ page_start([
     'og_image'    => 'og-mripro.jpg',
     'og_alt'      => 'MRI Pro, informační systém pro vaše technologie',
     'theme'       => 'dark',
-    'preload_image' => 'img/mripro-graf.webp',
+    'scripts'     => ['js/lightbox.js'],
+    
     'schema'      => [$schema_app, $schema_faq],
     'nav' => [
         ['#funkce', 'Funkce'],
@@ -89,10 +93,7 @@ page_start([
 <a class="btn btn--line" href="#ukazky">Prohlédnout aplikaci</a>
 </div>
 </div>
-<figure class="browser">
-<div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>mripro.cz</span></div>
-<div class="shot"><img src="<?= asset('img/mripro-graf.webp') ?>" alt="Graf podavače v MRI Pro: chod během dne s úrovněmi přetížení, optimálního zatížení, chodu naprázdno a zastavení" width="1212" height="524" fetchpriority="high"></div>
-</figure>
+<figure class="shot-card"><?= snimek('prehled-provozu', 'Přehled provozu MRI Pro s barevným stavem strojů', true) ?></figure>
 </div>
 </section>
 
@@ -116,14 +117,17 @@ page_start([
 <p class="eyebrow">Ukázky z aplikace</p>
 <h2 class="h2">Prohlédněte si MRI Pro</h2>
 </div>
-<?php foreach ($ukazky as $i => [$src, $w, $h, $alt, $nadpis, $text, $obrazekVlevo]): ?>
+<?php foreach ($ukazky as $i => [$nazev, $alt, $nadpis, $text]): ?>
 <div class="showcase">
-<?php $obrazek = '<figure' . ($w < 800 ? ' class="narrow"' : '') . '><img src="' . asset($src) . '" alt="' . e($alt) . '" width="' . $w . '" height="' . $h . '" loading="lazy" decoding="async"></figure>'; ?>
-<?= $obrazekVlevo ? $obrazek : '' ?>
-<div class="stack" style="gap:12px"><span class="showcase__num"><?= sprintf('%02d', $i + 1) ?></span><h3><?= e($nadpis) ?></h3><p><?= e($text) ?></p></div>
-<?= $obrazekVlevo ? '' : $obrazek ?>
+<?php if ($i % 2 === 1): ?><figure class="shot-card"><?= snimek($nazev, $alt) ?></figure><?php endif; ?>
+<div class="stack" style="gap:12px"><span class="showcase__num"><?= sprintf('%02d', $i + 1) ?></span><h3><?= e($nadpis) ?></h3><p><?= $text ?></p></div>
+<?php if ($i % 2 === 0): ?><figure class="shot-card"><?= snimek($nazev, $alt) ?></figure><?php endif; ?>
 </div>
 <?php endforeach; ?>
+<div class="showcase">
+<figure class="phone"><a class="zoom" href="<?= asset('img/mripro/mobil-390.webp') ?>" aria-label="Přehled provozu MRI Pro v mobilu (zvětšit)"><picture><source type="image/avif" srcset="<?= asset('img/mripro/mobil-390.avif') ?>"><source type="image/webp" srcset="<?= asset('img/mripro/mobil-390.webp') ?>"><img src="<?= asset('img/mripro/mobil.png') ?>" alt="Přehled provozu MRI Pro v mobilu" width="390" height="844" loading="lazy" decoding="async"></picture></a></figure>
+<div class="stack" style="gap:12px"><span class="showcase__num"><?= sprintf('%02d', count($ukazky) + 1) ?></span><h3>Přehled i v mobilu</h3><p>Stav strojů a výpadky uvidíte <strong>odkudkoli z telefonu</strong>. Aplikace běží v prohlížeči, nic se neinstaluje.</p></div>
+</div>
 </div>
 </section>
 
@@ -167,4 +171,4 @@ page_start([
 <p><strong>Kancelář</strong><br><a href="<?= tel(FIRMA['telefon']) ?>"><?= e(FIRMA['telefon']) ?></a><br><a href="mailto:<?= FIRMA['email'] ?>"><?= FIRMA['email'] ?></a></p>
 </div>
 </section>
-<?php page_end(['theme' => 'dark']);
+<?php page_end(['theme' => 'dark', 'scripts' => ['js/lightbox.js']]);

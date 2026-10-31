@@ -240,3 +240,17 @@ strong{font-weight:700}
   .app-mark img{height:96px}
   .audience,.cta-band{padding-block:40px}
 }
+
+/* snímky MRI Pro: světlá karta na tmavém pozadí, zvětšení po kliknutí */
+.zoom{display:block;cursor:zoom-in}
+.zoom picture,.zoom img{display:block;width:100%;height:auto}
+.shot-card{margin:0;background:#fff;border-radius:16px;padding:10px;box-shadow:0 18px 40px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.06);min-width:0}
+.shot-card img{border-radius:8px}
+.showcase .shot-card{padding:10px;display:block}
+.phone{margin:0 auto;width:min(290px,78vw);border:10px solid #0E0C0C;border-radius:44px;overflow:hidden;background:#0E0C0C;box-shadow:0 24px 48px rgba(0,0,0,.45),0 0 0 2px #3A3536}
+.phone img{display:block;width:100%;height:auto;border-radius:32px}
+.lightbox{border:0;padding:0;background:transparent;max-width:min(1456px,96vw);max-height:94vh;overflow:visible}
+.lightbox::backdrop{background:rgba(15,12,13,.85)}
+.lightbox img{display:block;max-width:min(1456px,96vw);max-height:94vh;width:auto;height:auto;border-radius:10px;background:#fff;cursor:zoom-out}
+.lightbox__close{position:absolute;top:-14px;right:-14px;width:44px;height:44px;border-radius:50%;border:0;background:var(--orange);color:var(--ink);font-size:28px;line-height:1;cursor:pointer}
+@media (max-width:760px){.lightbox__close{top:8px;right:8px}}

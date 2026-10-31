@@ -126,7 +126,28 @@ function page_end(array $p = []): void
 </div>
 </footer>
 <script src="<?= asset('js/menu.js') ?>" defer></script>
+<?php foreach ($p['scripts'] ?? [] as $js): ?>
+<script src="<?= asset($js) ?>" defer></script>
+<?php endforeach; ?>
 </body>
 </html>
 <?php
+}
+
+/**
+ * Snímek obrazovky MRI Pro: <picture> s AVIF a WebP (728 a 1456 px), PNG jako záloha,
+ * zabalený do odkazu na velkou verzi (lightbox v assets/js/lightbox.js).
+ * Soubory: assets/img/mripro/{nazev}-728.avif|webp, -1456.avif|webp, {nazev}.png.
+ */
+function snimek(string $nazev, string $alt, bool $prvni = false, string $sizes = '(min-width: 1240px) 560px, (min-width: 960px) 46vw, 92vw'): string
+{
+    $b = 'img/mripro/' . $nazev;
+    $srcset = fn (string $typ) => asset("$b-728.$typ") . ' 728w, ' . asset("$b-1456.$typ") . ' 1456w';
+    $nacitani = $prvni ? 'fetchpriority="high"' : 'loading="lazy"';
+    return '<a class="zoom" href="' . asset("$b-1456.webp") . '" aria-label="' . e($alt) . ' (zvětšit)">'
+        . '<picture>'
+        . '<source type="image/avif" srcset="' . $srcset('avif') . '" sizes="' . $sizes . '">'
+        . '<source type="image/webp" srcset="' . $srcset('webp') . '" sizes="' . $sizes . '">'
+        . '<img src="' . asset("$b.png") . '" alt="' . e($alt) . '" width="1456" height="836" ' . $nacitani . ' decoding="async">'
+        . '</picture></a>';
 }
