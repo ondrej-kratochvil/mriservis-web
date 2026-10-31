@@ -11,7 +11,7 @@ Statické HTML bez build kroku, hostované na GitHub Pages (větev `main`, koře
 
 ## Před spuštěním na mriservis.cz
 
-- Doplnit místa v hranatých závorkách (reference, fotky realizací, snímky MRI Pro, cena).
+- Doplnit podklady, které byly zatím z webu vyjmuté (reference, fotky realizací, snímky MRI Pro, cena); vedené jako úkoly v Tasks.
 - Odstranit `<meta name="robots" content="noindex, nofollow">` z obou stránek.
 - Formulář poptávky posílá přes FormSubmit (formsubmit.co) na info@mriservis.cz. Po prvním odeslání přijde na tu adresu aktivační e-mail, je potřeba ho potvrdit. Po přechodu na doménu změnit `_next` v `index.html` na novou adresu stránky `dekujeme.html`.
 - Doménu nastavit v Settings > Pages > Custom domain a u registrátora přidat DNS záznamy pro GitHub Pages.
