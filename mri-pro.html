@@ -23,13 +23,38 @@ a{color:#F89C1D}a:hover{color:#FFB54D}
 @media (max-width:960px){.tl{grid-template-columns:minmax(0,1fr);gap:32px}.tl li{padding-left:88px;min-height:64px;gap:6px}.tl .dot{position:absolute;left:0;top:0}.tl li::before{top:68px;left:30px;right:auto;bottom:-28px;width:4px;height:auto}}
 </style>
 <style>html{scroll-behavior:smooth}*{box-sizing:border-box}img{max-width:100%}</style>
+<style>
+header{position:sticky;top:0;z-index:20}
+.menu-btn{display:none;align-items:center;justify-content:center;width:48px;height:48px;border:0;border-radius:999px;background:transparent;color:#F5F4F2;cursor:pointer}
+.menu-btn:focus-visible,header nav a:focus-visible{outline:3px solid #F89C1D;outline-offset:2px}
+.menu-btn path{transition:transform .2s,opacity .2s;transform-box:view-box;transform-origin:12px 12px}
+.menu-btn[aria-expanded="true"] .l1{transform:translateY(5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .l2{opacity:0}
+.menu-btn[aria-expanded="true"] .l3{transform:translateY(-5px) rotate(-45deg)}
+@media (max-width:760px){
+.menu-btn{display:inline-flex}
+header nav{display:none!important;width:100%;flex-direction:column;align-items:stretch!important;gap:0!important;padding:4px 0 12px}
+header nav.open{display:flex!important}
+header nav a{padding:14px 4px!important;border-top:1px solid #3A3536;font-size:17px}
+header nav a:last-child{margin-top:12px;border-top:0;text-align:center;padding:14px 22px!important}
+header > div{padding-top:10px!important;padding-bottom:10px!important}
+header > div > a img{height:48px!important}
+section > div{padding-top:56px!important;padding-bottom:56px!important;gap:28px!important}
+h1{font-size:34px!important}
+h2{font-size:30px!important}
+h2 img{height:52px!important}
+.tl h3{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){.menu-btn path{transition:none}}
+</style>
 </head>
 <body>
 <div style="font-family: Figtree, 'Segoe UI', Arial, sans-serif; color: #F5F4F2; background: #171415; font-size: 17px; line-height: 1.6">
-<header style="border-bottom: 1px solid #3A3536">
+<header style="background: #171415; border-bottom: 1px solid #3A3536">
 <div style="max-width: 1240px; margin: 0 auto; padding: 14px max(16px, 3vw); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="index.html" style="display: flex; align-items: center; text-decoration: none"><img src="assets/mriservis-logo-bila.png" alt="MRI Servis, zpět na hlavní stránku" style="display: block; height: 64px; width: auto"></a>
-<nav aria-label="Menu MRI Pro" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 26px; font-size: 15px; font-weight: 500">
+<button type="button" class="menu-btn" aria-controls="menu-mripro" aria-expanded="false" aria-label="Otevřít menu"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg></button>
+<nav id="menu-mripro" aria-label="Menu MRI Pro" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 26px; font-size: 15px; font-weight: 500">
 <a href="#funkce" style="text-decoration: none; color: #F5F4F2">Funkce</a>
 <a href="#ukazky" style="text-decoration: none; color: #F5F4F2">Ukázky</a>
 <a href="#jak" style="text-decoration: none; color: #F5F4F2">Jak to funguje</a>
@@ -154,5 +179,12 @@ a{color:#F89C1D}a:hover{color:#FFB54D}
 </div>
 </footer>
 </div>
+<script>
+(function(){var b=document.querySelector('.menu-btn'),n=document.getElementById(b.getAttribute('aria-controls'));
+function set(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Zavřít menu':'Otevřít menu');}
+b.addEventListener('click',function(){set(!n.classList.contains('open'));});
+n.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});})();
+</script>
 </body>
 </html>

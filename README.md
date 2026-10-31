@@ -2,7 +2,7 @@
 
 Web firmy MRI Servis - průmyslová automatizace s.r.o. (mriservis.cz) a představení aplikace MRI Pro.
 
-- `index.html` hlavní stránka
+- `index.html` hlavní stránka (zdroj pravdy je tento repozitář, návrhy na plátně už se nesynchronizují)
 - `mri-pro.html` podstránka MRI Pro (tmavá varianta)
 - `assets/` loga, fotky a snímky z aplikace
 

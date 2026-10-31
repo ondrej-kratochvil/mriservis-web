@@ -33,13 +33,38 @@ a{color:#231F20}a:hover{color:#9A5A00}
 }
 </style>
 <style>html{scroll-behavior:smooth}*{box-sizing:border-box}img{max-width:100%}</style>
+<style>
+header{position:sticky;top:0;z-index:20}
+.menu-btn{display:none;align-items:center;justify-content:center;width:48px;height:48px;border:0;border-radius:999px;background:transparent;color:#231F20;cursor:pointer}
+.menu-btn:focus-visible,header nav a:focus-visible{outline:3px solid #F89C1D;outline-offset:2px}
+.menu-btn path{transition:transform .2s,opacity .2s;transform-box:view-box;transform-origin:12px 12px}
+.menu-btn[aria-expanded="true"] .l1{transform:translateY(5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .l2{opacity:0}
+.menu-btn[aria-expanded="true"] .l3{transform:translateY(-5px) rotate(-45deg)}
+@media (max-width:760px){
+.menu-btn{display:inline-flex}
+header nav{display:none!important;width:100%;flex-direction:column;align-items:stretch!important;gap:0!important;padding:4px 0 12px}
+header nav.open{display:flex!important}
+header nav a{padding:14px 4px!important;border-top:1px solid #ECEAE6;font-size:17px}
+header nav a:last-child{margin-top:12px;border-top:0;text-align:center;padding:14px 22px!important}
+header > div{padding-top:10px!important;padding-bottom:10px!important}
+header > div > a img{height:48px!important}
+section > div{padding-top:56px!important;padding-bottom:56px!important;gap:28px!important}
+h1{font-size:34px!important}
+h2{font-size:30px!important}
+h2 img{height:52px!important}
+.tl h3{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){.menu-btn path{transition:none}}
+</style>
 </head>
 <body>
 <div style="font-family: Figtree, 'Segoe UI', Arial, sans-serif; color: #231F20; background: #FFFFFF; font-size: 17px; line-height: 1.6">
 <header style="background: #FFFFFF; border-bottom: 1px solid #ECEAE6">
 <div style="max-width: 1200px; margin: 0 auto; padding: 16px max(16px, 3vw); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="#top" style="display: flex; align-items: center; text-decoration: none"><img src="assets/mriservis-logo.png" alt="MRI Servis, průmyslová automatizace" style="display: block; height: 64px; width: auto"></a>
-<nav aria-label="Hlavní menu" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-weight: 600; font-size: 16px">
+<button type="button" class="menu-btn" aria-controls="menu-hlavni" aria-expanded="false" aria-label="Otevřít menu"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg></button>
+<nav id="menu-hlavni" aria-label="Hlavní menu" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-weight: 600; font-size: 16px">
 <a href="#sluzby" style="text-decoration: none">Služby</a>
 <a href="mri-pro.html" style="text-decoration: none">MRI Pro</a>
 <a href="#reference" style="text-decoration: none">Reference</a>
@@ -97,7 +122,7 @@ a{color:#231F20}a:hover{color:#9A5A00}
 <div style="max-width: 1200px; margin: 0 auto; padding: 96px max(16px, 3vw); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 56px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0">
 <p style="margin: 0; display: flex; align-items: center; gap: 12px; font-family: Outfit, sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: #9A5A00"><span aria-hidden="true" style="width: 14px; height: 20px; background: #F89C1D; transform: skewX(30deg)"></span>Vlastní software</p>
-<h2 style="margin: 0; line-height: 1"><img src="assets/mripro-logo.svg" alt="MRI Pro" style="display: block; height: 72px; width: auto"></h2>
+<h2 style="margin: 0; line-height: 1"><img src="assets/mripro-logo.svg" alt="MRI Pro" style="display: block; height: 64px; width: auto"></h2>
 <p style="margin: 0; font-size: 19px; color: #4A4644">Informační systém pro sběr, vizualizaci a analýzu dat z drtičů, vah, pásových vah a podavačů. Bez ohledu na výrobce stroje nebo komunikační protokol.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
 <li style="display: flex; gap: 14px"><span aria-hidden="true" style="flex: none; width: 9px; height: 14px; margin-top: 6px; background: #F89C1D; transform: skewX(30deg)"></span><span>Stav všech strojů na jednom místě, barevně: optimální chod, naprázdno, přetížení</span></li>
@@ -111,7 +136,7 @@ a{color:#231F20}a:hover{color:#9A5A00}
 </div>
 </div>
 <figure style="margin: 0; background: #FFFFFF; border-radius: 24px; overflow: hidden; box-shadow: 0 24px 48px rgba(35,31,32,0.12); min-width: 0">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; background: #231F20; color: #FFFFFF; font-size: 14px"><strong style="display: flex; align-items: center; gap: 8px; font-family: Outfit, sans-serif; font-weight: 700; font-size: 17px"><img src="assets/mripro-ikona.png" alt="" style="width: 24px; height: 24px">MRI Pro · Provoz [NÁZEV]</strong><span style="color: #CFCBC8">dnes, 1. směna</span></div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; background: #231F20; color: #FFFFFF; font-size: 14px"><strong style="display: flex; align-items: center; gap: 8px; font-family: Outfit, sans-serif; font-weight: 700; font-size: 17px"><img src="assets/mripro-ikona.svg" alt="" style="width: 24px; height: 24px">MRI Pro · Provoz [NÁZEV]</strong><span style="color: #CFCBC8">dnes, 1. směna</span></div>
 <div style="padding: 22px; display: flex; flex-direction: column; gap: 16px; font-size: 14px">
 <div style="display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; align-items: center"><span style="font-weight: 600">Primér</span><span style="display: flex; height: 18px; border-radius: 999px; overflow: hidden"><span style="width: 62%; background: #2E8B57"></span><span style="width: 18%; background: #E3B341"></span><span style="width: 8%; background: #C0392B"></span><span style="width: 12%; background: #D8D5D0"></span></span></div>
 <div style="display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; align-items: center"><span style="font-weight: 600">Sekundér</span><span style="display: flex; height: 18px; border-radius: 999px; overflow: hidden"><span style="width: 71%; background: #2E8B57"></span><span style="width: 14%; background: #E3B341"></span><span style="width: 5%; background: #C0392B"></span><span style="width: 10%; background: #D8D5D0"></span></span></div>
@@ -170,9 +195,16 @@ a{color:#231F20}a:hover{color:#9A5A00}
 <div style="max-width: 1200px; margin: 0 auto; padding: 28px max(16px, 3vw); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; color: #6B6663">
 <img src="assets/mriservis-logo-slogan.png" alt="MRI Servis, průmyslová automatizace" style="height: 72px; width: auto">
 <span>MRI Servis - průmyslová automatizace s.r.o. · Nová čtvrť 282/7c, 750 02 Přerov · IČO 01989286 · DIČ CZ01989286</span>
-<a href="https://mripro.cz" style="display: flex; align-items: center; gap: 8px; color: #6B6663"><img src="assets/mripro-ikona.png" alt="" style="width: 28px; height: 28px">mripro.cz</a>
+<a href="https://mripro.cz" style="display: flex; align-items: center; gap: 8px; color: #6B6663"><img src="assets/mripro-ikona.svg" alt="" style="width: 28px; height: 28px">mripro.cz</a>
 </div>
 </footer>
 </div>
+<script>
+(function(){var b=document.querySelector('.menu-btn'),n=document.getElementById(b.getAttribute('aria-controls'));
+function set(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Zavřít menu':'Otevřít menu');}
+b.addEventListener('click',function(){set(!n.classList.contains('open'));});
+n.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});})();
+</script>
 </body>
 </html>
