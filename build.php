@@ -20,6 +20,9 @@ $stranky = [
     '404.php'     => '404.html',
     'robots.php'  => 'robots.txt',
     'sitemap.php' => 'sitemap.xml',
+    'varianta/index.php' => 'varianta/index.html',
+    'varianta/sluzby.php' => 'varianta/sluzby/index.html',
+    'varianta/ochrana-osobnich-udaju.php' => 'varianta/ochrana-osobnich-udaju/index.html',
 ];
 
 /** Staré adresy z prvního náhledu přesměrujeme na nové. */

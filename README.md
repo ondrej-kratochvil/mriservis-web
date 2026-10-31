@@ -28,6 +28,17 @@ otázky), je v polích na začátku stránek, takže se upravuje na jednom míst
 | `router.php` | jen pro vývoj (`php -S localhost:8000 router.php`) |
 | `.htaccess` | hezké adresy, HTTPS, cache a komprese na hostingu s Apache |
 
+## Varianta B (návrh podle revize)
+
+Složka `varianta/`, adresa `/varianta/`. Návrh k porovnání podle revize ChatGPT (31. 10. 2026): hlavní sdělení
+„Průmyslová automatizace. Od návrhu po realizaci.“, služby po oblastech se stránkou `/varianta/sluzby/`,
+menu s podnabídkou, sekce Proč MRI Servis, výraznější výzvy k poptávce, rozšířený formulář (firma, předmět)
+a návrh stránky o ochraně osobních údajů. Barvy z revize (tmavě modrá, tyrkysová, oranžová) v `assets/css/varianta.css`.
+Vždy noindex. Sdílí `inc/config.php` a `inc/layout.php`.
+
+Reference ve variantě jsou připravené jako struktura (`$realizace` ve `varianta/index.php`: obor, výchozí situace,
+zadání, technologie, rozsah, výsledek, fotka). Dokud je pole prázdné, ukazují se jen fotky.
+
 ## Nasazení
 
 **GitHub Pages (náhled):** po každém pushi do `main` workflow `.github/workflows/pages.yml` spustí

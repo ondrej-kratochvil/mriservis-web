@@ -14,6 +14,9 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 # Hezké adresy
 RewriteRule ^mri-pro/?$ mri-pro.php [L]
 RewriteRule ^dekujeme/?$ dekujeme.php [L]
+RewriteRule ^varianta/?$ varianta/index.php [L]
+RewriteRule ^varianta/sluzby/?$ varianta/sluzby.php [L]
+RewriteRule ^varianta/ochrana-osobnich-udaju/?$ varianta/ochrana-osobnich-udaju.php [L]
 RewriteRule ^robots\.txt$ robots.php [L]
 RewriteRule ^sitemap\.xml$ sitemap.php [L]
 
@@ -22,8 +25,13 @@ RewriteRule ^mri-pro\.html$ mri-pro/ [L,R=301]
 RewriteRule ^dekujeme\.html$ dekujeme/ [L,R=301]
 RewriteRule ^index\.html$ / [L,R=301]
 
+# Adresy dosavadního webu mriservis.cz (2020) na odpovídající místa nového webu
+RewriteRule ^about\.html$ /#firma [L,R=301,NE]
+RewriteRule ^kontakt\.html$ /#kontakt [L,R=301,NE]
+
 # Interní soubory nejsou veřejné
 RewriteRule ^(inc|\.github)/ - [F,L]
+RewriteRule ^varianta/spolecne\.php$ - [F,L]
 RewriteRule ^(build\.php|router\.php|README\.md)$ - [F,L]
 </IfModule>
 
@@ -46,6 +54,10 @@ ExpiresByType font/woff2 "access plus 1 year"
 Header always set X-Content-Type-Options "nosniff"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; form-action 'self' https://formsubmit.co; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+# HSTS zapnout až po ověření, že HTTPS na mriservis.cz funguje (i pro www):
+# Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
 
 AddType font/woff2 .woff2

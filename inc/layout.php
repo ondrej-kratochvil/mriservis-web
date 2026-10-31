@@ -84,19 +84,27 @@ function page_start(array $p): void
 <?php if (!empty($p['preload_image'])): ?>
 <link rel="preload" href="<?= asset($p['preload_image']) ?>" as="image"<?= str_ends_with($p['preload_image'], '.avif') ? ' type="image/avif"' : '' ?> fetchpriority="high">
 <?php endif; ?>
-<style><?= css_inline() ?></style>
+<style><?= css_inline() ?><?php foreach ($p['css'] ?? [] as $c) { echo css_inline($c); } ?></style>
 <script type="application/ld+json"><?= json_encode(count($schema) === 1 ? $schema[0] : $schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?></script>
 </head>
-<body<?= $theme === 'dark' ? ' class="theme-dark"' : '' ?>>
+<?php $tridy = trim(($theme === 'dark' ? 'theme-dark ' : '') . ($p['body_class'] ?? '')); ?>
+<body<?= $tridy !== '' ? ' class="' . e($tridy) . '"' : '' ?>>
 <a class="skip" href="#obsah">Přeskočit na obsah</a>
+<?= $p['banner'] ?? '' ?>
 <header class="site-header">
 <div class="wrap site-header__in">
-<a class="site-header__logo" href="<?= url() ?>"><img src="<?= asset($logo) ?>" alt="<?= e(FIRMA['kratce']) ?>, průmyslová automatizace, úvodní stránka" width="87" height="64"></a>
+<a class="site-header__logo" href="<?= e($p['home'] ?? url()) ?>"><img src="<?= asset($logo) ?>" alt="<?= e(FIRMA['kratce']) ?>, průmyslová automatizace, úvodní stránka" width="87" height="64"></a>
 <?php if (!empty($p['nav'])): ?>
 <button type="button" class="menu-btn" aria-controls="<?= $navId ?>" aria-expanded="false" aria-label="Otevřít menu"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg></button>
 <nav id="<?= $navId ?>" class="nav" aria-label="Hlavní menu">
 <?php foreach ($p['nav'] as $item): ?>
+<?php if (!empty($item[3])): ?>
+<div class="nav__group"><a href="<?= e($item[0]) ?>"><?= e($item[1]) ?></a><div class="nav__sub">
+<?php foreach ($item[3] as $sub): ?><a href="<?= e($sub[0]) ?>"><?= e($sub[1]) ?></a><?php endforeach; ?>
+</div></div>
+<?php else: ?>
 <a href="<?= e($item[0]) ?>"<?= !empty($item[2]) ? ' class="nav__cta"' : '' ?>><?= e($item[1]) ?></a>
+<?php endif; ?>
 <?php endforeach; ?>
 </nav>
 <?php endif; ?>
@@ -120,6 +128,7 @@ function page_end(array $p = []): void
 <img src="<?= asset('img/mriservis-logo-slogan.svg') ?>" alt="<?= e(FIRMA['kratce']) ?>, průmyslová automatizace" width="85" height="72">
 <?php endif; ?>
 <span>© <?= e(FIRMA['nazev']) ?></span>
+<?= $p['footer_extra'] ?? '' ?>
 <?php if ($theme !== 'dark'): ?>
 <a href="<?= MRIPRO_URL ?>"><img src="<?= asset('img/mripro-ikona.svg') ?>" alt="" width="28" height="28">mripro.cz</a>
 <?php endif; ?>
@@ -153,11 +162,12 @@ function snimek(string $nazev, string $alt, bool $prvni = false, string $sizes =
 }
 
 /** Styly vložené přímo do stránky (malý soubor, ušetří jeden blokující požadavek). */
-function css_inline(): string
+function css_inline(string $soubor = 'web.css'): string
 {
-    static $css = null;
+    static $cache = [];
+    $css = &$cache[$soubor];
     if ($css === null) {
-        $css = (string) file_get_contents(ROOT . '/assets/css/web.css');
+        $css = (string) file_get_contents(ROOT . '/assets/css/' . $soubor);
         $css = preg_replace('#/\*.*?\*/#s', '', $css);
         $css = preg_replace('/\s*\n\s*/', '', $css);
         $css = str_replace('url(../fonts/', 'url(' . url('assets/fonts/'), $css);
