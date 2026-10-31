@@ -38,7 +38,7 @@ page_start([
     'description' => 'Návrh, projekt, instalace, automatizace, servis a revize technologických linek. Přerov, od roku 2013. Monitoring provozu MRI Pro.',
     'og_image'    => 'og-mriservis.jpg',
     'og_alt'      => 'MRI Servis, elektroinstalace a automatizace technologických linek',
-    'preload_image' => 'img/linka-sila.webp',
+    'preload_image' => 'img/linka-sila.avif',
     'nav' => [
         ['#sluzby', 'Služby'],
         [url('mri-pro/'), 'MRI Pro'],
@@ -60,7 +60,7 @@ page_start([
 </div>
 </div>
 <div class="hero__photo">
-<img src="<?= asset('img/linka-sila.webp') ?>" alt="Technologická linka se sily" width="425" height="272" fetchpriority="high">
+<?= foto('linka-sila', 'Technologická linka se sily', 425, 272, true) ?>
 </div>
 </div>
 </section>
@@ -126,7 +126,7 @@ page_start([
 </div>
 <div class="gallery">
 <?php foreach ($reference as [$src, $w, $h, $alt]): ?>
-<img src="<?= asset($src) ?>" alt="<?= e($alt) ?>" width="<?= $w ?>" height="<?= $h ?>" loading="lazy" decoding="async">
+<?= foto(basename($src, '.webp'), $alt, $w, $h) ?>
 <?php endforeach; ?>
 </div>
 <p class="note">Pracujeme pro provozy v Česku i na Slovensku.</p>

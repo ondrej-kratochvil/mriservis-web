@@ -82,9 +82,9 @@ function page_start(array $p): void
 <link rel="preload" href="<?= url("assets/fonts/$font.woff2") ?>" as="font" type="font/woff2" crossorigin>
 <?php endforeach; ?>
 <?php if (!empty($p['preload_image'])): ?>
-<link rel="preload" href="<?= asset($p['preload_image']) ?>" as="image" fetchpriority="high">
+<link rel="preload" href="<?= asset($p['preload_image']) ?>" as="image"<?= str_ends_with($p['preload_image'], '.avif') ? ' type="image/avif"' : '' ?> fetchpriority="high">
 <?php endif; ?>
-<link rel="stylesheet" href="<?= asset('css/web.css') ?>">
+<style><?= css_inline() ?></style>
 <script type="application/ld+json"><?= json_encode(count($schema) === 1 ? $schema[0] : $schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?></script>
 </head>
 <body<?= $theme === 'dark' ? ' class="theme-dark"' : '' ?>>
@@ -150,4 +150,25 @@ function snimek(string $nazev, string $alt, bool $prvni = false, string $sizes =
         . '<source type="image/webp" srcset="' . $srcset('webp') . '" sizes="' . $sizes . '">'
         . '<img src="' . asset("$b.png") . '" alt="' . e($alt) . '" width="1456" height="836" ' . $nacitani . ' decoding="async">'
         . '</picture></a>';
+}
+
+/** Styly vložené přímo do stránky (malý soubor, ušetří jeden blokující požadavek). */
+function css_inline(): string
+{
+    static $css = null;
+    if ($css === null) {
+        $css = (string) file_get_contents(ROOT . '/assets/css/web.css');
+        $css = preg_replace('#/\*.*?\*/#s', '', $css);
+        $css = preg_replace('/\s*\n\s*/', '', $css);
+        $css = str_replace('url(../fonts/', 'url(' . url('assets/fonts/'), $css);
+    }
+    return $css;
+}
+
+/** Fotka jako <picture> s AVIF a WebP (assets/img/{nazev}.avif|webp). */
+function foto(string $nazev, string $alt, int $w, int $h, bool $prvni = false): string
+{
+    $nacitani = $prvni ? 'fetchpriority="high"' : 'loading="lazy"';
+    return '<picture><source type="image/avif" srcset="' . asset("img/$nazev.avif") . '">'
+        . '<img src="' . asset("img/$nazev.webp") . '" alt="' . e($alt) . '" width="' . $w . '" height="' . $h . '" ' . $nacitani . ' decoding="async"></picture>';
 }
